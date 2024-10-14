@@ -65,11 +65,24 @@ public class App {
 
                         int[] copiaArreglo = Arrays.copyOf(arreglo, arreglo.length);
 
-                        int orden = leerEnteroValido(scanner, "Escoja ascendente (1) o descendente (2): ", false);
+                        int orden;
+                        do {
+                            orden = leerEnteroValido(scanner, "Escoja ascendente (1) o descendente (2): ", false);
+                            if (orden != 1 && orden != 2) {
+                                System.out.println("Debe ingresar 1 para ascendente o 2 para descendente. Intente nuevamente.");
+                            }
+                        } while (orden != 1 && orden != 2);
                         boolean ascendente = (orden == 1);
-
-                        int mostrar = leerEnteroValido(scanner, "Quiere ver cada paso? (1. Si, 2. No): ", false);
+                        
+                        int mostrar;
+                        do {
+                            mostrar = leerEnteroValido(scanner, "Quiere ver cada paso? (1. Si, 2. No): ", false);
+                            if (mostrar != 1 && mostrar != 2) {
+                                System.out.println("Debe ingresar 1 para 'Sí' o 2 para 'No'. Intente nuevamente.");
+                            }
+                        } while (mostrar != 1 && mostrar != 2);
                         boolean mostrarPasos = (mostrar == 1);
+                        
 
                         switch (metodo) {
                             case 1:
